@@ -1,0 +1,2 @@
+# Optional chart export only; not needed by the simulation server.
+matplotlib==3.10.8

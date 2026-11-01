@@ -1,0 +1,14 @@
+.topic-list { max-height: min(900px, calc(100vh - 240px)); min-height: 340px; overflow-y: auto; align-self: start; scrollbar-width: thin; }
+.topic-list .search-label { position: sticky; top: 0; z-index: 1; background: #fafcf5; }
+.physics-status { display: inline-flex; padding: 6px 10px; border-radius: 5px; border: 1px solid #dce6d2; font-size: 10px; color: #5e7650; background: #edf4e5; }
+.physics-status-reference_only { color: #7a6849; border-color: #e4decc; background: #f8f4e9; }
+.physics-status-implemented { color: #446d48; border-color: #c7dfc3; background: #e9f4e7; }
+.physics-regime, .physics-implementation { margin: 23px 0; padding: 17px 20px; border: 1px solid #e0e8d8; border-radius: 7px; background: #f4f7ee; }
+.physics-regime strong, .physics-implementation strong { font-size: 11px; color: #6b805d; }
+.topic-content .physics-regime p, .topic-content .physics-implementation p { margin-bottom: 0; font-size: 11px; color: #728366; }
+.physics-conditions { padding-left: 19px; font-size: 12px; line-height: 1.9; color: #7b8e6b; }
+.physics-conditions li { margin-bottom: 8px; }
+@media(max-width: 760px) {
+  .topic-list { max-height: 330px; min-height: 180px; }
+  .physics-regime, .physics-implementation { padding: 14px; }
+}

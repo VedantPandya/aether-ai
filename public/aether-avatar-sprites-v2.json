@@ -1,0 +1,857 @@
+{
+  "version": 2,
+  "type": "expression-poses",
+  "coordinateSystem": "zero-based; origin top-left; normalized UV grid; generated sprites have small position variations",
+  "sheets": [
+    {
+      "image": "aether-avatar-sprites-v2-a.png",
+      "width": 887,
+      "height": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frames": [
+        {
+          "name": "neutral-left",
+          "expression": "attentive oval eyes and relaxed tiny smile",
+          "direction": "left",
+          "row": 0,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "neutral-right",
+          "expression": "attentive oval eyes and relaxed tiny smile",
+          "direction": "right",
+          "row": 0,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "blink-left",
+          "expression": "both eyes fully closed in soft arcs",
+          "direction": "left",
+          "row": 0,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "blink-right",
+          "expression": "both eyes fully closed in soft arcs",
+          "direction": "right",
+          "row": 0,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "curious-left",
+          "expression": "one eye larger and a raised eyebrow",
+          "direction": "left",
+          "row": 1,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "curious-right",
+          "expression": "one eye larger and a raised eyebrow",
+          "direction": "right",
+          "row": 1,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "thinking-left",
+          "expression": "eyes rolled upward, tiny pursed mouth",
+          "direction": "left",
+          "row": 1,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "thinking-right",
+          "expression": "eyes rolled upward, tiny pursed mouth",
+          "direction": "right",
+          "row": 1,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "calculating-left",
+          "expression": "narrow focused eyes, three tiny lime pixels ON the face display",
+          "direction": "left",
+          "row": 2,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "calculating-right",
+          "expression": "narrow focused eyes, three tiny lime pixels ON the face display",
+          "direction": "right",
+          "row": 2,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "eureka-left",
+          "expression": "wide bright eyes and a delighted open smile",
+          "direction": "left",
+          "row": 2,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "eureka-right",
+          "expression": "wide bright eyes and a delighted open smile",
+          "direction": "right",
+          "row": 2,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "explaining-left",
+          "expression": "engaged eyes and a small open talking mouth",
+          "direction": "left",
+          "row": 3,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "explaining-right",
+          "expression": "engaged eyes and a small open talking mouth",
+          "direction": "right",
+          "row": 3,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "listening-left",
+          "expression": "soft concentrated eyes, slightly raised brows, closed mouth",
+          "direction": "left",
+          "row": 3,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "listening-right",
+          "expression": "soft concentrated eyes, slightly raised brows, closed mouth",
+          "direction": "right",
+          "row": 3,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "happy-left",
+          "expression": "crescent eyes and a big smile",
+          "direction": "left",
+          "row": 4,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "happy-right",
+          "expression": "crescent eyes and a big smile",
+          "direction": "right",
+          "row": 4,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "laughing-left",
+          "expression": "squeezed laughing eyes, wide open laugh",
+          "direction": "left",
+          "row": 4,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "laughing-right",
+          "expression": "squeezed laughing eyes, wide open laugh",
+          "direction": "right",
+          "row": 4,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "excited-left",
+          "expression": "star-shaped eyes and delighted mouth",
+          "direction": "left",
+          "row": 5,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "excited-right",
+          "expression": "star-shaped eyes and delighted mouth",
+          "direction": "right",
+          "row": 5,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "proud-left",
+          "expression": "chin-up attitude, closed pleased smile",
+          "direction": "left",
+          "row": 5,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "proud-right",
+          "expression": "chin-up attitude, closed pleased smile",
+          "direction": "right",
+          "row": 5,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "confident-left",
+          "expression": "determined eyes with an asymmetric grin",
+          "direction": "left",
+          "row": 6,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "confident-right",
+          "expression": "determined eyes with an asymmetric grin",
+          "direction": "right",
+          "row": 6,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "wink-left",
+          "expression": "one eye closed and one open, cheeky smile",
+          "direction": "left",
+          "row": 6,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "wink-right",
+          "expression": "one eye closed and one open, cheeky smile",
+          "direction": "right",
+          "row": 6,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "smug-left",
+          "expression": "very half-lidded eyes, comically self-satisfied crooked smile",
+          "direction": "left",
+          "row": 7,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "smug-right",
+          "expression": "very half-lidded eyes, comically self-satisfied crooked smile",
+          "direction": "right",
+          "row": 7,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "skeptical-left",
+          "expression": "one brow high, one eye half closed, flat unimpressed mouth",
+          "direction": "left",
+          "row": 7,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "skeptical-right",
+          "expression": "one brow high, one eye half closed, flat unimpressed mouth",
+          "direction": "right",
+          "row": 7,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        }
+      ]
+    },
+    {
+      "image": "aether-avatar-sprites-v2-b.png",
+      "width": 887,
+      "height": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frames": [
+        {
+          "name": "surprised-left",
+          "expression": "huge round eyes and a small O mouth",
+          "direction": "left",
+          "row": 0,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "surprised-right",
+          "expression": "huge round eyes and a small O mouth",
+          "direction": "right",
+          "row": 0,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "shocked-left",
+          "expression": "very tall eyes and a large open O mouth",
+          "direction": "left",
+          "row": 0,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "shocked-right",
+          "expression": "very tall eyes and a large open O mouth",
+          "direction": "right",
+          "row": 0,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "worried-left",
+          "expression": "raised inner brows and a small downturned mouth",
+          "direction": "left",
+          "row": 1,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "worried-right",
+          "expression": "raised inner brows and a small downturned mouth",
+          "direction": "right",
+          "row": 1,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "fuel-panic-left",
+          "expression": "asymmetric enormous eyes, wobbly zigzag mouth, one sweat mark ON the screen",
+          "direction": "left",
+          "row": 1,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "fuel-panic-right",
+          "expression": "asymmetric enormous eyes, wobbly zigzag mouth, one sweat mark ON the screen",
+          "direction": "right",
+          "row": 1,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.125,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "oops-left",
+          "expression": "sheepish sideways gaze and awkward crooked smile",
+          "direction": "left",
+          "row": 2,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "oops-right",
+          "expression": "sheepish sideways gaze and awkward crooked smile",
+          "direction": "right",
+          "row": 2,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "embarrassed-left",
+          "expression": "downward bashful eyes and tiny shy smile, two lime cheek marks ON the screen",
+          "direction": "left",
+          "row": 2,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "embarrassed-right",
+          "expression": "downward bashful eyes and tiny shy smile, two lime cheek marks ON the screen",
+          "direction": "right",
+          "row": 2,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.25,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "confused-left",
+          "expression": "uneven eyes, one raised eyebrow, twisted mouth",
+          "direction": "left",
+          "row": 3,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "confused-right",
+          "expression": "uneven eyes, one raised eyebrow, twisted mouth",
+          "direction": "right",
+          "row": 3,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "dizzy-left",
+          "expression": "two spiral eyes and wavy mouth",
+          "direction": "left",
+          "row": 3,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "dizzy-right",
+          "expression": "two spiral eyes and wavy mouth",
+          "direction": "right",
+          "row": 3,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.375,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "frustrated-left",
+          "expression": "angled eyebrows and clenched little digital teeth",
+          "direction": "left",
+          "row": 4,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "frustrated-right",
+          "expression": "angled eyebrows and clenched little digital teeth",
+          "direction": "right",
+          "row": 4,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "grumpy-left",
+          "expression": "deeply lowered eyelids and exaggerated pout",
+          "direction": "left",
+          "row": 4,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "grumpy-right",
+          "expression": "deeply lowered eyelids and exaggerated pout",
+          "direction": "right",
+          "row": 4,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.5,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "sad-left",
+          "expression": "large sorrowful eyes and downturned mouth",
+          "direction": "left",
+          "row": 5,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "sad-right",
+          "expression": "large sorrowful eyes and downturned mouth",
+          "direction": "right",
+          "row": 5,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "crying-left",
+          "expression": "watery eyes and tiny tear shapes entirely ON the faceplate",
+          "direction": "left",
+          "row": 5,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "crying-right",
+          "expression": "watery eyes and tiny tear shapes entirely ON the faceplate",
+          "direction": "right",
+          "row": 5,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.625,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "relieved-left",
+          "expression": "closed soft eyes and relieved little smile",
+          "direction": "left",
+          "row": 6,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "relieved-right",
+          "expression": "closed soft eyes and relieved little smile",
+          "direction": "right",
+          "row": 6,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "determined-left",
+          "expression": "sharp focused eyes and firm confident mouth",
+          "direction": "left",
+          "row": 6,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "determined-right",
+          "expression": "sharp focused eyes and firm confident mouth",
+          "direction": "right",
+          "row": 6,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.75,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "sleepy-left",
+          "expression": "heavy sleepy eyelids and small yawning mouth",
+          "direction": "left",
+          "row": 7,
+          "column": 0,
+          "uv": {
+            "x": 0,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "sleepy-right",
+          "expression": "heavy sleepy eyelids and small yawning mouth",
+          "direction": "right",
+          "row": 7,
+          "column": 1,
+          "uv": {
+            "x": 0.25,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "asleep-left",
+          "expression": "fully closed horizontal eyes and tiny relaxed mouth, no letters",
+          "direction": "left",
+          "row": 7,
+          "column": 2,
+          "uv": {
+            "x": 0.5,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        },
+        {
+          "name": "asleep-right",
+          "expression": "fully closed horizontal eyes and tiny relaxed mouth, no letters",
+          "direction": "right",
+          "row": 7,
+          "column": 3,
+          "uv": {
+            "x": 0.75,
+            "y": 0.875,
+            "width": 0.25,
+            "height": 0.125
+          }
+        }
+      ]
+    }
+  ]
+}

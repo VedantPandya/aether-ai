@@ -1,0 +1,14 @@
+import { chromium } from '@playwright/test';
+const browser = await chromium.launch({ executablePath: process.env.BROWSER_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true, args: ['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'] });
+const page=await browser.newPage({viewport:{width:1600,height:1100},deviceScaleFactor:1});
+page.on('pageerror',e=>console.log('PAGE ERROR',e.message));
+await page.goto('http://127.0.0.1:8000');
+await page.getByRole('button',{name:'Plan mission',exact:true}).waitFor();
+await page.waitForTimeout(1800);
+await page.screenshot({path:'output/initial.png',fullPage:true});
+await page.getByRole('button',{name:'Plan this mission',exact:true}).click();
+await page.getByRole('button',{name:'Execute mission',exact:true}).waitFor({timeout:30000});
+await page.waitForTimeout(1200);
+await page.screenshot({path:'output/planned.png',fullPage:true});
+console.log('Preview screenshots captured; title:',await page.title());
+await browser.close();

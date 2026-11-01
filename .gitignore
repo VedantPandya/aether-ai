@@ -1,0 +1,72 @@
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+*.env
+.secrets/
+secrets/
+secrets.json
+credentials.json
+client_secret*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies and virtual environments
+node_modules/
+.venv/
+venv/
+env/
+
+# Python caches and build products
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+*.egg-info/
+.python-version
+
+# JavaScript build, test and coverage outputs
+dist/
+build/
+.vite/
+.next/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+test-results/
+playwright-report/
+
+# Local mission data, databases and generated output
+.aether/
+output/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+.coverage
+.coverage.*
+coverage.xml
+*.log
+*.tar
+*.tar.gz
+
+# Demo footage and intermediate files; the app imports these narration files
+demo-video/source/*
+!demo-video/source/audio-natural/
+demo-video/source/audio-natural/*
+!demo-video/source/audio-natural/*.wav
+
+# Editor and operating-system files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini

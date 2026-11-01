@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-01",
+  "scenario": {
+    "fault": "thrust_loss",
+    "fraction": 0.5,
+    "at_s": 25,
+    "realtime_factor": 5
+  },
+  "provider": "openai",
+  "models": {
+    "reflex": "gpt-6-luna",
+    "strategic": "gpt-6.1-sol"
+  },
+  "outcome": "docked",
+  "simulated_time_s": 241.8488815000514,
+  "reflex": {
+    "calls": 17,
+    "sources": [
+      "decisions_api"
+    ],
+    "observed_latency_ms": {
+      "min": 230.05,
+      "median": 420.77,
+      "max": 1177.61
+    }
+  },
+  "strategic": {
+    "name": "Responses API reasoning",
+    "requests": 1,
+    "model_calls": 1,
+    "pending": false,
+    "observed_request_to_apply_wall_s": 4.222224
+  },
+  "applied_programs": [
+    {
+      "program": {
+        "mode": "approach",
+        "approach_time_constant_s": 40.0,
+        "phase_offset_deg": 0.0,
+        "thrust_fraction": 1.0,
+        "hold_distance_m": 20.0
+      },
+      "source": "reasoning_model",
+      "rationale": "Select the admissible direct approach with a 40 s time constant: its numerical preview meets all capture constraints under 50% thrust effectiveness and preserves the most fuel of the screened capture options, leaving 27.469 kg versus the 0.25 kg protected reserve. Predicted capture duration is 192.7 s; no angular detour is needed. Subject to supervisor revalidation against the latest state.",
+      "forecast": {
+        "admissible": true,
+        "captures": true,
+        "reason": "Capture constraints met",
+        "duration_s": 194.70000000002128,
+        "fuel_remaining_kg": 27.095877439160347,
+        "fuel_used_kg": 0.7257560449563485,
+        "final": {
+          "t": 241.8451010002269,
+          "position_m": [
+            2.8484745061088557,
+            -7.735977475453242,
+            0.0
+          ],
+          "velocity_m_s": [
+            0.1599166037449227,
+            0.06537629390626909,
+            0.0
+          ],
+          "heading_rad": 8.206784604316374,
+          "angular_velocity_rad_s": 0.020943951023948044,
+          "fuel_kg": 27.095877439160347,
+          "leaked_fuel_kg": 0.0,
+          "distance_m": 0.24373425878298507,
+          "relative_speed_m_s": 0.007949391618242672,
+          "attitude_error_rad": 4.796163466380676e-14,
+          "angular_rate_error_rad_s": -1.6091294963160863e-14,
+          "station_angle": 5.0651919507266285,
+          "station_angular_velocity_rad_s": 0.020943951023931952,
+          "obstacle_margin_m": 1000000.0,
+          "thrust_effectiveness": 0.5,
+          "torque_effectiveness": 1.0,
+          "program": {
+            "mode": "approach",
+            "approach_time_constant_s": 40.0,
+            "phase_offset_deg": 0.0,
+            "thrust_fraction": 1.0,
+            "hold_distance_m": 20.0
+          },
+          "revision": 3,
+          "success": true,
+          "done": true,
+          "reason": ""
+        }
+      },
+      "position_continuity_m": 0.0,
+      "fuel_continuity_kg": 0.0
+    }
+  ],
+  "final_state": {
+    "t": 241.8488815000514,
+    "position_m": [
+      2.849078402361811,
+      -7.735730488665292,
+      0.0
+    ],
+    "velocity_m_s": [
+      0.1599111683085652,
+      0.0653882340179443,
+      0.0
+    ],
+    "heading_rad": 8.20686378291954,
+    "angular_velocity_rad_s": 0.02094395102394806,
+    "fuel_kg": 27.09588098808499,
+    "leaked_fuel_kg": 0.0,
+    "distance_m": 0.2437111759106242,
+    "relative_speed_m_s": 0.007948625050060625,
+    "attitude_error_rad": 5.1514348342607263e-14,
+    "angular_rate_error_rad_s": -1.610864219792063e-14,
+    "station_angle": 5.0652711293297985,
+    "station_angular_velocity_rad_s": 0.020943951023931952,
+    "obstacle_margin_m": 1000000.0,
+    "thrust_effectiveness": 0.5,
+    "torque_effectiveness": 1.0,
+    "program": {
+      "mode": "approach",
+      "approach_time_constant_s": 40.0,
+      "phase_offset_deg": 0.0,
+      "thrust_fraction": 1.0,
+      "hold_distance_m": 20.0
+    },
+    "revision": 3,
+    "success": true,
+    "done": true,
+    "reason": ""
+  },
+  "scope": "Planar CW docking, simulated truth state; educational flight dynamics, not real-world validation."
+}

@@ -1,0 +1,3630 @@
+{
+  "model_version": "0.2.0",
+  "generated_at": "2026-11-01T14:22:50.776589+00:00",
+  "checks": [
+    {
+      "name": "ball-vacuum outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "ball-drag outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "ball-backspin outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "ball-precision-miss outcome",
+      "observed": false,
+      "acceptance": "False",
+      "passed": true
+    },
+    {
+      "name": "launch-space outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "launch-low-thrust outcome",
+      "observed": false,
+      "acceptance": "False",
+      "passed": true
+    },
+    {
+      "name": "launch-vacuum outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "orbit-efficient outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "orbit-fuel-shortage outcome",
+      "observed": false,
+      "acceptance": "False",
+      "passed": true
+    },
+    {
+      "name": "docking-nominal outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "docking-no-torque outcome",
+      "observed": false,
+      "acceptance": "False",
+      "passed": true
+    },
+    {
+      "name": "docking-precision outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "lunar-distance outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "mars-tourism outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "mars-wrong-window outcome",
+      "observed": false,
+      "acceptance": "False",
+      "passed": true
+    },
+    {
+      "name": "mars-flyby outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "venus-transfer outcome",
+      "observed": true,
+      "acceptance": "True",
+      "passed": true
+    },
+    {
+      "name": "Vacuum projectile range error (m)",
+      "observed": 1.0084733048643102e-10,
+      "acceptance": "< 2e-7 m",
+      "passed": true
+    },
+    {
+      "name": "Ball aerodynamic energy residual (J)",
+      "observed": 4.102998829580429e-09,
+      "acceptance": "< 1e-6 J",
+      "passed": true
+    },
+    {
+      "name": "Launch step-halving apogee difference (m)",
+      "observed": 0.0036137437855359167,
+      "acceptance": "< 0.01 m",
+      "passed": true
+    },
+    {
+      "name": "orbit-efficient relative energy error",
+      "observed": 7.761978598686513e-16,
+      "acceptance": "< 1e-10",
+      "passed": true
+    },
+    {
+      "name": "lunar-distance relative energy error",
+      "observed": 3.02216254664702e-13,
+      "acceptance": "< 1e-10",
+      "passed": true
+    },
+    {
+      "name": "Docking position alone is insufficient",
+      "observed": false,
+      "acceptance": "False with zero attitude torque",
+      "passed": true
+    }
+  ],
+  "examples": {
+    "ball-vacuum": {
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 0.0,
+      "available_delta_v_m_s": 0.0,
+      "fuel_required_kg": 0.0,
+      "fuel_remaining_kg": 0.0,
+      "fuel_used_kg": 0.0,
+      "duration_s": 2.8841929963231108,
+      "burns": [],
+      "summary": "Ball throw completed",
+      "frame": {
+        "name": "local_ground",
+        "origin": "Release ground point",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [
+        {
+          "type": "apogee",
+          "t": 1.4420964983105669,
+          "position_m": [
+            20.394324261615495,
+            10.197162129779299,
+            0
+          ]
+        },
+        {
+          "type": "ground_contact",
+          "t": 2.8841929963231108,
+          "range_m": 40.788648519016284
+        }
+      ],
+      "metrics": {
+        "range_m": 40.788648519016284,
+        "flight_time_s": 2.8841929963231108,
+        "max_height_m": 10.197162129779299,
+        "impact_speed_m_s": 19.99999999995056,
+        "target_error_m": null,
+        "target_tolerance_m": 0.5,
+        "initial_energy_j": 28.999999999999996,
+        "aerodynamic_work_j": 0.0,
+        "energy_balance_residual_j": -1.4337331322167302e-10,
+        "initial_angular_momentum_kg_m2_s": 0.0
+      },
+      "integrator": {
+        "name": "RK4 with bisected apogee/ground contact",
+        "step_s": 0.02,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Flat local ground, constant standard gravity and 2D motion; no bounce or terrain.",
+        "Quadratic drag using air-relative velocity, constant horizontal wind and spherical frontal area.",
+        "Optional Magnus lift uses a bounded approximate lift coefficient; spin decay is omitted.",
+        "The throw supplies initial kinetic energy; no rocket propellant is consumed."
+      ],
+      "knowledge_ids": [
+        "projectile-motion",
+        "drag",
+        "rotating-frames",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "ball_throw",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 0.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": false,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 0.0,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "a9e559b5ac",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 73,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0.0,
+            0,
+            0.0
+          ],
+          "max": [
+            40.788648519016284,
+            10.195590440647203,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 0.0366,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 2.8841929963231108,
+        "x": 40.788648519016284,
+        "y": 0.0,
+        "z": 0.0,
+        "position_m": [
+          40.788648519016284,
+          0,
+          0.0
+        ],
+        "velocity_m_s": [
+          14.142135623730951,
+          -14.142135623661032,
+          0.0
+        ],
+        "vx_m_s": 14.142135623730951,
+        "vy_m_s": -14.142135623661032,
+        "altitude_km": 0.0,
+        "speed_m_s": 19.99999999995056,
+        "fuel_kg": 0,
+        "phase": "Ground contact",
+        "heading_rad": 0.0,
+        "angular_velocity_rad_s": 0.0,
+        "kinetic_energy_j": 28.999999999856623,
+        "potential_energy_j": 0.0,
+        "acceleration_m_s2": [
+          0.0,
+          -9.80665,
+          0.0
+        ],
+        "force_vectors_n": {
+          "gravity": [
+            0.0,
+            -1.4219642499999998,
+            0.0
+          ],
+          "aerodynamic": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "ball-drag": {
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 0.0,
+      "available_delta_v_m_s": 0.0,
+      "fuel_required_kg": 0.0,
+      "fuel_remaining_kg": 0.0,
+      "fuel_used_kg": 0.0,
+      "duration_s": 2.704400587379934,
+      "burns": [],
+      "summary": "Ball throw completed",
+      "frame": {
+        "name": "local_ground",
+        "origin": "Release ground point",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [
+        {
+          "type": "apogee",
+          "t": 1.3166040435433395,
+          "position_m": [
+            17.037079700592187,
+            8.980448834500146,
+            0
+          ]
+        },
+        {
+          "type": "ground_contact",
+          "t": 2.704400587379934,
+          "range_m": 32.52278053457892
+        }
+      ],
+      "metrics": {
+        "range_m": 32.52278053457892,
+        "flight_time_s": 2.704400587379934,
+        "max_height_m": 8.980448834500146,
+        "impact_speed_m_s": 16.2221228335309,
+        "target_error_m": null,
+        "target_tolerance_m": 0.5,
+        "initial_energy_j": 28.999999999999996,
+        "aerodynamic_work_j": -9.921097985206066,
+        "energy_balance_residual_j": 4.102998829580429e-09,
+        "initial_angular_momentum_kg_m2_s": 0.0
+      },
+      "integrator": {
+        "name": "RK4 with bisected apogee/ground contact",
+        "step_s": 0.02,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Flat local ground, constant standard gravity and 2D motion; no bounce or terrain.",
+        "Quadratic drag using air-relative velocity, constant horizontal wind and spherical frontal area.",
+        "Optional Magnus lift uses a bounded approximate lift coefficient; spin decay is omitted.",
+        "The throw supplies initial kinetic energy; no rocket propellant is consumed."
+      ],
+      "knowledge_ids": [
+        "projectile-motion",
+        "drag",
+        "rotating-frames",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "ball_throw",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 0.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 0.0,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "a3543314d5",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 69,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0.0,
+            0,
+            0.0
+          ],
+          "max": [
+            32.52278053457892,
+            8.979096266036066,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 0.0366,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 2.704400587379934,
+        "x": 32.52278053457892,
+        "y": 0.0,
+        "z": 0.0,
+        "position_m": [
+          32.52278053457892,
+          0,
+          0.0
+        ],
+        "velocity_m_s": [
+          10.273335382360722,
+          -12.554515098071285,
+          0.0
+        ],
+        "vx_m_s": 10.273335382360722,
+        "vy_m_s": -12.554515098071285,
+        "altitude_km": 0.0,
+        "speed_m_s": 16.2221228335309,
+        "fuel_kg": 0,
+        "phase": "Ground contact",
+        "heading_rad": 0.0,
+        "angular_velocity_rad_s": 0.0,
+        "kinetic_energy_j": 19.07890201889693,
+        "potential_energy_j": 0.0,
+        "acceleration_m_s2": [
+          -1.3924100539835125,
+          -8.105057246057875,
+          0.0
+        ],
+        "force_vectors_n": {
+          "gravity": [
+            0.0,
+            -1.4219642499999998,
+            0.0
+          ],
+          "aerodynamic": [
+            -0.2018994578276093,
+            0.24673094932160802,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "ball-backspin": {
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 0.0,
+      "available_delta_v_m_s": 0.0,
+      "fuel_required_kg": 0.0,
+      "fuel_remaining_kg": 0.0,
+      "fuel_used_kg": 0.0,
+      "duration_s": 3.117747859656813,
+      "burns": [],
+      "summary": "Ball throw completed",
+      "frame": {
+        "name": "local_ground",
+        "origin": "Release ground point",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [
+        {
+          "type": "apogee",
+          "t": 1.5203634402155886,
+          "position_m": [
+            18.31725211001681,
+            10.391199165453926,
+            0
+          ]
+        },
+        {
+          "type": "ground_contact",
+          "t": 3.117747859656813,
+          "range_m": 34.80782159463368
+        }
+      ],
+      "metrics": {
+        "range_m": 34.80782159463368,
+        "flight_time_s": 3.117747859656813,
+        "max_height_m": 10.391199165453926,
+        "impact_speed_m_s": 16.18740951151775,
+        "target_error_m": null,
+        "target_tolerance_m": 0.5,
+        "initial_energy_j": 28.999999999999996,
+        "aerodynamic_work_j": -10.002663563055123,
+        "energy_balance_residual_j": -1.6606627390000802e-09,
+        "initial_angular_momentum_kg_m2_s": 0.0093233376
+      },
+      "integrator": {
+        "name": "RK4 with bisected apogee/ground contact",
+        "step_s": 0.02,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Flat local ground, constant standard gravity and 2D motion; no bounce or terrain.",
+        "Quadratic drag using air-relative velocity, constant horizontal wind and spherical frontal area.",
+        "Optional Magnus lift uses a bounded approximate lift coefficient; spin decay is omitted.",
+        "The throw supplies initial kinetic energy; no rocket propellant is consumed."
+      ],
+      "knowledge_ids": [
+        "projectile-motion",
+        "drag",
+        "rotating-frames",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "ball_throw",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 0.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 0.0,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 120.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "9a57397956",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 79,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0.0,
+            0,
+            0.0
+          ],
+          "max": [
+            34.80782159463368,
+            10.389545222466298,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 0.0366,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 3.117747859656813,
+        "x": 34.80782159463368,
+        "y": 0.0,
+        "z": 0.0,
+        "position_m": [
+          34.80782159463368,
+          0,
+          0.0
+        ],
+        "velocity_m_s": [
+          10.200013911813695,
+          -12.56948459135785,
+          0.0
+        ],
+        "vx_m_s": 10.200013911813695,
+        "vy_m_s": -12.56948459135785,
+        "altitude_km": 0.0,
+        "speed_m_s": 16.18740951151775,
+        "fuel_kg": 0,
+        "phase": "Ground contact",
+        "heading_rad": 374.1297431588175,
+        "angular_velocity_rad_s": 120.0,
+        "kinetic_energy_j": 18.99733643528421,
+        "potential_energy_j": 0.0,
+        "acceleration_m_s2": [
+          0.09253137538088797,
+          -6.912123426736638,
+          0.0
+        ],
+        "force_vectors_n": {
+          "gravity": [
+            0.0,
+            -1.4219642499999998,
+            0.0
+          ],
+          "aerodynamic": [
+            0.013417049430228756,
+            0.4197063531231873,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "ball-precision-miss": {
+      "feasible": false,
+      "success": false,
+      "delta_v_m_s": 0.0,
+      "available_delta_v_m_s": 0.0,
+      "fuel_required_kg": 0.0,
+      "fuel_remaining_kg": 0.0,
+      "fuel_used_kg": 0.0,
+      "duration_s": 2.8417691239714644,
+      "burns": [],
+      "summary": "Ball missed the target tolerance",
+      "frame": {
+        "name": "local_ground",
+        "origin": "Release ground point",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [
+        {
+          "type": "apogee",
+          "t": 1.316622346937657,
+          "position_m": [
+            17.037542294667226,
+            10.78062504625218,
+            0
+          ]
+        },
+        {
+          "type": "ground_contact",
+          "t": 2.8417691239714644,
+          "range_m": 33.921640996040345
+        }
+      ],
+      "metrics": {
+        "range_m": 33.921640996040345,
+        "flight_time_s": 2.8417691239714644,
+        "max_height_m": 10.78062504625218,
+        "impact_speed_m_s": 16.9700605843344,
+        "target_error_m": 11.078359003959655,
+        "target_tolerance_m": 0.1,
+        "initial_energy_j": 31.559535649999997,
+        "aerodynamic_work_j": -10.680771320033697,
+        "energy_balance_residual_j": -2.8577478161651015e-09,
+        "initial_angular_momentum_kg_m2_s": 0.0
+      },
+      "integrator": {
+        "name": "RK4 with bisected apogee/ground contact",
+        "step_s": 0.02,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Flat local ground, constant standard gravity and 2D motion; no bounce or terrain.",
+        "Quadratic drag using air-relative velocity, constant horizontal wind and spherical frontal area.",
+        "Optional Magnus lift uses a bounded approximate lift coefficient; spin decay is omitted.",
+        "The throw supplies initial kinetic energy; no rocket propellant is consumed."
+      ],
+      "knowledge_ids": [
+        "projectile-motion",
+        "drag",
+        "rotating-frames",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "ball_throw",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 0.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": 45.0,
+        "ball_target_tolerance_m": 0.1,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "8b30a7e21b",
+      "model_version": "0.2.0",
+      "status": "blocked",
+      "sample_count": 72,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0.0,
+            0,
+            0.0
+          ],
+          "max": [
+            33.921640996040345,
+            10.779269493416978,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 0.0366,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 2.8417691239714644,
+        "x": 33.921640996040345,
+        "y": 0.0,
+        "z": 0.0,
+        "position_m": [
+          33.921640996040345,
+          0,
+          0.0
+        ],
+        "velocity_m_s": [
+          10.080029522948822,
+          -13.65195813985892,
+          0.0
+        ],
+        "vx_m_s": 10.080029522948822,
+        "vy_m_s": -13.65195813985892,
+        "altitude_km": 0.0,
+        "speed_m_s": 16.9700605843344,
+        "fuel_kg": 0,
+        "phase": "Ground contact",
+        "heading_rad": 0.0,
+        "angular_velocity_rad_s": 0.0,
+        "kinetic_energy_j": 20.878764327108552,
+        "potential_energy_j": 0.0,
+        "acceleration_m_s2": [
+          -1.4292006186657313,
+          -7.871002195093853,
+          0.0
+        ],
+        "force_vectors_n": {
+          "gravity": [
+            0.0,
+            -1.4219642499999998,
+            0.0
+          ],
+          "aerodynamic": [
+            -0.20723408970653104,
+            0.28066893171139123,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "reference_or_failed_attempt_only",
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "launch-space": {
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 3447.5859842133195,
+      "available_delta_v_m_s": 3447.585984213478,
+      "fuel_required_kg": 1200.0,
+      "fuel_remaining_kg": 0,
+      "fuel_used_kg": 1200.0,
+      "fuel_requirement_kind": "predicted_consumption_not_minimum_design_fuel",
+      "duration_s": 320.98557953820756,
+      "burns": [
+        {
+          "name": "Liftoff",
+          "at_s": 0,
+          "delta_v_m_s": 3447.5859842133195,
+          "description": "30 kN finite thrust; variable mass"
+        },
+        {
+          "name": "Apogee",
+          "at_s": 320.98557953820756,
+          "delta_v_m_s": 0,
+          "description": "Predicted altitude 247.56 km"
+        }
+      ],
+      "summary": "100 km space boundary crossed",
+      "frame": {
+        "name": "earth_vertical",
+        "origin": "Earth center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [
+        {
+          "type": "liftoff",
+          "t": 0.0
+        },
+        {
+          "type": "burnout",
+          "t": 125.5251199999872,
+          "altitude_m": 72188.38757639012,
+          "speed_m_s": 1810.8172360166955
+        },
+        {
+          "type": "target_altitude",
+          "t": 141.56516775694516,
+          "altitude_m": 100000.0
+        },
+        {
+          "type": "apogee",
+          "t": 320.98557953820756,
+          "altitude_m": 247560.08449592523
+        }
+      ],
+      "metrics": {
+        "apogee_altitude_m": 247560.08449592523,
+        "apogee_time_s": 320.98557953820756,
+        "burnout_time_s": 125.5251199999872,
+        "initial_thrust_to_weight": 1.6971732735963732,
+        "peak_dynamic_pressure_pa": 25410.57119853751,
+        "peak_proper_acceleration_g": 5.092664187259991,
+        "peak_speed_m_s": 1810.8172360166955,
+        "ideal_thrust_delta_v_m_s": 3447.5859842133195,
+        "gravity_loss_m_s": 3035.710200412145,
+        "drag_loss_m_s": 411.8757838043255,
+        "velocity_budget_residual_m_s": 3.933395276156659e-12,
+        "propellant_mass_balance_error_kg": 0.0
+      },
+      "integrator": {
+        "name": "RK4 with exact burnout split and bisected apogee",
+        "step_s": 0.05,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Vertical suborbital sounding rocket; no orbital insertion, staging, winds, rotation or landing.",
+        "Spherical-Earth inverse-square gravity; U.S. Standard Atmosphere 1976 layers to 86 km, vacuum above.",
+        "Constant thrust and Isp; fuel means total consumed propellant, including oxidizer.",
+        "Constant drag coefficient and reference area; no transonic aerodynamics or thermal model.",
+        "Initial thrust-to-weight must exceed one; no hold-down propellant burning is modelled."
+      ],
+      "knowledge_ids": [
+        "gravity",
+        "rocket-equation",
+        "drag",
+        "atmosphere-models",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "launch",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 1200.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "c1d122d6de",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 320,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0,
+            6371000.0,
+            0.0
+          ],
+          "max": [
+            0,
+            6618560.084495925,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 6371000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 320.98557953820756,
+        "x": 0.0,
+        "y": 6618.560084495925,
+        "z": 0.0,
+        "position_m": [
+          0,
+          6618560.084495925,
+          0.0
+        ],
+        "velocity_m_s": [
+          0,
+          -3.146840468759571e-09,
+          0.0
+        ],
+        "vx_m_s": 0,
+        "vy_m_s": -3.146840468759571e-09,
+        "altitude_km": 247.56008449592522,
+        "speed_m_s": 3.146840468759571e-09,
+        "fuel_kg": 0,
+        "phase": "Apogee",
+        "thrust_n": 0.0,
+        "mass_kg": 600.0,
+        "dynamic_pressure_pa": 0.0,
+        "proper_acceleration_m_s2": 0.0,
+        "acceleration_m_s2": [
+          0.0,
+          -9.099357834238955,
+          0.0
+        ],
+        "force_vectors_n": {
+          "thrust": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "drag": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gravity": [
+            0.0,
+            -5459.614700543373,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "model_validated",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "launch-low-thrust": {
+      "feasible": false,
+      "success": false,
+      "delta_v_m_s": 0.0,
+      "available_delta_v_m_s": 3447.585984213478,
+      "fuel_required_kg": 0.0,
+      "fuel_remaining_kg": 1200.0,
+      "fuel_used_kg": 0.0,
+      "fuel_requirement_kind": "predicted_consumption_not_minimum_design_fuel",
+      "duration_s": 0.0,
+      "burns": [
+        {
+          "name": "Liftoff",
+          "at_s": 0,
+          "delta_v_m_s": 0.0,
+          "description": "10 kN finite thrust; variable mass"
+        },
+        {
+          "name": "Flight limit",
+          "at_s": 0.0,
+          "delta_v_m_s": 0,
+          "description": "Predicted altitude 0.00 km"
+        }
+      ],
+      "summary": "Liftoff thrust-to-weight ratio is not greater than one",
+      "frame": {
+        "name": "earth_vertical",
+        "origin": "Earth center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [],
+      "metrics": {
+        "apogee_altitude_m": 0.0,
+        "apogee_time_s": 0.0,
+        "burnout_time_s": null,
+        "initial_thrust_to_weight": 0.5657244245321243,
+        "peak_dynamic_pressure_pa": 0.0,
+        "peak_proper_acceleration_g": 0.0,
+        "peak_speed_m_s": 0.0,
+        "ideal_thrust_delta_v_m_s": 0.0,
+        "gravity_loss_m_s": 0.0,
+        "drag_loss_m_s": 0.0,
+        "velocity_budget_residual_m_s": 0.0,
+        "propellant_mass_balance_error_kg": 0.0
+      },
+      "integrator": {
+        "name": "RK4 with exact burnout split and bisected apogee",
+        "step_s": 0.05,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Vertical suborbital sounding rocket; no orbital insertion, staging, winds, rotation or landing.",
+        "Spherical-Earth inverse-square gravity; U.S. Standard Atmosphere 1976 layers to 86 km, vacuum above.",
+        "Constant thrust and Isp; fuel means total consumed propellant, including oxidizer.",
+        "Constant drag coefficient and reference area; no transonic aerodynamics or thermal model.",
+        "Initial thrust-to-weight must exceed one; no hold-down propellant burning is modelled."
+      ],
+      "knowledge_ids": [
+        "gravity",
+        "rocket-equation",
+        "drag",
+        "atmosphere-models",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "launch",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 1200.0,
+        "isp_s": 320.0,
+        "thrust_n": 10000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "31555072e4",
+      "model_version": "0.2.0",
+      "status": "blocked",
+      "sample_count": 1,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0,
+            6371000.0,
+            0.0
+          ],
+          "max": [
+            0,
+            6371000.0,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 6371000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 0.0,
+        "x": 0.0,
+        "y": 6371.0,
+        "z": 0.0,
+        "position_m": [
+          0,
+          6371000.0,
+          0.0
+        ],
+        "velocity_m_s": [
+          0,
+          0.0,
+          0.0
+        ],
+        "vx_m_s": 0,
+        "vy_m_s": 0.0,
+        "altitude_km": 0.0,
+        "speed_m_s": 0.0,
+        "fuel_kg": 1200.0,
+        "phase": "On pad",
+        "thrust_n": 0.0,
+        "mass_kg": 1800.0,
+        "dynamic_pressure_pa": 0.0,
+        "proper_acceleration_m_s2": 0.0,
+        "acceleration_m_s2": [
+          0.0,
+          -9.820250487063928,
+          0.0
+        ],
+        "force_vectors_n": {
+          "thrust": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "drag": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "gravity": [
+            0.0,
+            -17676.450876715073,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "reference_or_failed_attempt_only",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "launch-vacuum": {
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 3447.5859842133195,
+      "available_delta_v_m_s": 3447.585984213478,
+      "fuel_required_kg": 1200.0,
+      "fuel_remaining_kg": 0,
+      "fuel_used_kg": 1200.0,
+      "fuel_requirement_kind": "predicted_consumption_not_minimum_design_fuel",
+      "duration_s": 372.5503797470263,
+      "burns": [
+        {
+          "name": "Liftoff",
+          "at_s": 0,
+          "delta_v_m_s": 3447.5859842133195,
+          "description": "30 kN finite thrust; variable mass"
+        },
+        {
+          "name": "Apogee",
+          "at_s": 372.5503797470263,
+          "delta_v_m_s": 0,
+          "description": "Predicted altitude 371.63 km"
+        }
+      ],
+      "summary": "100 km space boundary crossed",
+      "frame": {
+        "name": "earth_vertical",
+        "origin": "Earth center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "events": [
+        {
+          "type": "liftoff",
+          "t": 0.0
+        },
+        {
+          "type": "target_altitude",
+          "t": 125.31009553260604,
+          "altitude_m": 100000.0
+        },
+        {
+          "type": "burnout",
+          "t": 125.5251199999872,
+          "altitude_m": 100477.6515765911,
+          "speed_m_s": 2225.7286052943955
+        },
+        {
+          "type": "apogee",
+          "t": 372.5503797470263,
+          "altitude_m": 371627.43542180536
+        }
+      ],
+      "metrics": {
+        "apogee_altitude_m": 371627.43542180536,
+        "apogee_time_s": 372.5503797470263,
+        "burnout_time_s": 125.5251199999872,
+        "initial_thrust_to_weight": 1.6971732735963732,
+        "peak_dynamic_pressure_pa": 0.0,
+        "peak_proper_acceleration_g": 5.0985810648896415,
+        "peak_speed_m_s": 2225.7286052943955,
+        "ideal_thrust_delta_v_m_s": 3447.5859842133195,
+        "gravity_loss_m_s": 3447.585984212782,
+        "drag_loss_m_s": 0.0,
+        "velocity_budget_residual_m_s": 1.1360107299296374e-11,
+        "propellant_mass_balance_error_kg": 0.0
+      },
+      "integrator": {
+        "name": "RK4 with exact burnout split and bisected apogee",
+        "step_s": 0.05,
+        "event_time_tolerance_s": 1e-09
+      },
+      "assumptions": [
+        "Vertical suborbital sounding rocket; no orbital insertion, staging, winds, rotation or landing.",
+        "Spherical-Earth inverse-square gravity; U.S. Standard Atmosphere 1976 layers to 86 km, vacuum above.",
+        "Constant thrust and Isp; fuel means total consumed propellant, including oxidizer.",
+        "Constant drag coefficient and reference area; no transonic aerodynamics or thermal model.",
+        "Initial thrust-to-weight must exceed one; no hold-down propellant burning is modelled."
+      ],
+      "knowledge_ids": [
+        "gravity",
+        "rocket-equation",
+        "drag",
+        "atmosphere-models",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "launch",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 1200.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": false,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "fe65a6ca98",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 371,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            0,
+            6371000.0,
+            0.0
+          ],
+          "max": [
+            0,
+            6742627.435421806,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 6371000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 372.5503797470263,
+        "x": 0.0,
+        "y": 6742.627435421806,
+        "z": 0.0,
+        "position_m": [
+          0,
+          6742627.435421806,
+          0.0
+        ],
+        "velocity_m_s": [
+          0,
+          5.48871476047097e-10,
+          0.0
+        ],
+        "vx_m_s": 0,
+        "vy_m_s": 5.48871476047097e-10,
+        "altitude_km": 371.6274354218054,
+        "speed_m_s": 5.48871476047097e-10,
+        "fuel_kg": 0,
+        "phase": "Apogee",
+        "thrust_n": 0.0,
+        "mass_kg": 600.0,
+        "dynamic_pressure_pa": 0.0,
+        "proper_acceleration_m_s2": 0.0,
+        "acceleration_m_s2": [
+          0.0,
+          -8.767574180156164,
+          0.0
+        ],
+        "force_vectors_n": {
+          "thrust": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "drag": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "gravity": [
+            0.0,
+            -5260.544508093698,
+            0.0
+          ]
+        }
+      },
+      "trajectory_validity": "model_validated",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "orbit-efficient": {
+      "feasible": true,
+      "available_delta_v_m_s": 572.1483823786992,
+      "fuel_required_kg": 60.25460574504609,
+      "fuel_remaining_kg": 59.74539425495391,
+      "mass_ratio": 1.0913300892582831,
+      "required_initial_fuel_kg": 54.798053554969805,
+      "fuel_margin_kg": 65.20194644503019,
+      "delta_v_m_s": 274.2636559769121,
+      "duration_s": 4073.741385004512,
+      "burns": [
+        {
+          "name": "Departure burn",
+          "at_s": 0,
+          "delta_v_m_s": 138.37090266423027,
+          "signed_delta_v_m_s": 138.37090266423027,
+          "fuel_kg": 31.057538067832752,
+          "equivalent_burn_duration_s": 3.2487509940577284,
+          "description": "Prograde"
+        },
+        {
+          "name": "Circularization burn",
+          "at_s": 2865.063544667303,
+          "delta_v_m_s": 135.8927533126818,
+          "signed_delta_v_m_s": 135.8927533126818,
+          "fuel_kg": 29.19706767721334,
+          "equivalent_burn_duration_s": 3.054137853191938,
+          "description": "Prograde"
+        }
+      ],
+      "success": true,
+      "summary": "Target orbit acquired",
+      "frame": {
+        "name": "earth_inertial",
+        "origin": "Earth center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "metrics": {
+        "transfer_time_s": 2865.063544667303,
+        "semi_major_axis_m": 6921000.0,
+        "eccentricity": 0.03612194769541974,
+        "max_relative_energy_error": 7.761978598686513e-16,
+        "max_relative_angular_momentum_error": 4.3605526400980374e-16
+      },
+      "events": [
+        {
+          "type": "burn",
+          "t": 0,
+          "delta_v_m_s": 138.37090266423027
+        },
+        {
+          "type": "transfer_endpoint",
+          "t": 2865.063544667303
+        },
+        {
+          "type": "burn",
+          "t": 2865.063544667303,
+          "delta_v_m_s": 135.8927533126818
+        }
+      ],
+      "integrator": {
+        "name": "Analytic Kepler ellipse and circular coast",
+        "error_control": "No time-integration drift in the two-body model"
+      },
+      "assumptions": [
+        "Spherical Earth; coplanar circular initial and final orbits; exact Newtonian two-body conics.",
+        "Instantaneous impulses; finite-burn gravity losses, J2, atmospheric drag and third-body perturbations omitted.",
+        "Equivalent burn durations are diagnostics only, not a finite-thrust propagation."
+      ],
+      "knowledge_ids": [
+        "gravity",
+        "hohmann",
+        "rocket-equation",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "orbit",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 120.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "ec353cd25e",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 502,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -7171000.0,
+            -6820026.278352546,
+            0.0
+          ],
+          "max": [
+            6671000.0,
+            6916483.282709502,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 6371000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 4073.741385004512,
+        "x": -2215.960866662749,
+        "y": -6820.026278352546,
+        "z": 0.0,
+        "position_m": [
+          -2215960.866662749,
+          -6820026.278352546,
+          0.0
+        ],
+        "velocity_m_s": [
+          7090.638626214619,
+          -2303.888148526967,
+          0.0
+        ],
+        "vx_m_s": 7090.638626214619,
+        "vy_m_s": -2303.888148526967,
+        "altitude_km": 800.0,
+        "speed_m_s": 7455.538661189395,
+        "fuel_kg": 59.74539425495391,
+        "phase": "Target orbit",
+        "angular_velocity_rad_s": 0.001039679077003123,
+        "specific_energy_j_kg": -27792528.364244875,
+        "specific_angular_momentum_m2_s": 53463667739.389145,
+        "acceleration_m_s2": [
+          2.395304303778951,
+          7.371988622265507,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_used_kg": 60.25460574504609,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "orbit-fuel-shortage": {
+      "feasible": false,
+      "available_delta_v_m_s": 62.14317919170584,
+      "fuel_required_kg": 51.21641488328919,
+      "fuel_remaining_kg": 0,
+      "mass_ratio": 1.0913300892582831,
+      "required_initial_fuel_kg": 54.798053554969805,
+      "fuel_margin_kg": -42.798053554969805,
+      "delta_v_m_s": 274.2636559769121,
+      "duration_s": 4073.741385004512,
+      "burns": [
+        {
+          "name": "Departure burn",
+          "at_s": 0,
+          "delta_v_m_s": 138.37090266423027,
+          "signed_delta_v_m_s": 138.37090266423027,
+          "fuel_kg": 26.398907357657777,
+          "equivalent_burn_duration_s": 2.7614383449490623,
+          "description": "Prograde"
+        },
+        {
+          "name": "Circularization burn",
+          "at_s": 2865.063544667303,
+          "delta_v_m_s": 135.8927533126818,
+          "signed_delta_v_m_s": 135.8927533126818,
+          "fuel_kg": 24.817507525631413,
+          "equivalent_burn_duration_s": 2.596017175213155,
+          "description": "Prograde"
+        }
+      ],
+      "success": false,
+      "summary": "Insufficient propellant for the requested transfer",
+      "frame": {
+        "name": "earth_inertial",
+        "origin": "Earth center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "metrics": {
+        "transfer_time_s": 2865.063544667303,
+        "semi_major_axis_m": 6921000.0,
+        "eccentricity": 0.03612194769541974,
+        "max_relative_energy_error": 7.761978598686513e-16,
+        "max_relative_angular_momentum_error": 4.3605526400980374e-16
+      },
+      "events": [
+        {
+          "type": "burn",
+          "t": 0,
+          "delta_v_m_s": 138.37090266423027
+        },
+        {
+          "type": "transfer_endpoint",
+          "t": 2865.063544667303
+        },
+        {
+          "type": "burn",
+          "t": 2865.063544667303,
+          "delta_v_m_s": 135.8927533126818
+        }
+      ],
+      "integrator": {
+        "name": "Analytic Kepler ellipse and circular coast",
+        "error_control": "No time-integration drift in the two-body model"
+      },
+      "assumptions": [
+        "Spherical Earth; coplanar circular initial and final orbits; exact Newtonian two-body conics.",
+        "Instantaneous impulses; finite-burn gravity losses, J2, atmospheric drag and third-body perturbations omitted.",
+        "Equivalent burn durations are diagnostics only, not a finite-thrust propagation."
+      ],
+      "knowledge_ids": [
+        "gravity",
+        "hohmann",
+        "rocket-equation",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "orbit",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 12.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "1c5180f9fd",
+      "model_version": "0.2.0",
+      "status": "blocked",
+      "sample_count": 502,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -7171000.0,
+            -6820026.278352546,
+            0.0
+          ],
+          "max": [
+            6671000.0,
+            6916483.282709502,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 6371000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 4073.741385004512,
+        "x": -2215.960866662749,
+        "y": -6820.026278352546,
+        "z": 0.0,
+        "position_m": [
+          -2215960.866662749,
+          -6820026.278352546,
+          0.0
+        ],
+        "velocity_m_s": [
+          7090.638626214619,
+          -2303.888148526967,
+          0.0
+        ],
+        "vx_m_s": 7090.638626214619,
+        "vy_m_s": -2303.888148526967,
+        "altitude_km": 800.0,
+        "speed_m_s": 7455.538661189395,
+        "fuel_kg": 0,
+        "phase": "Target orbit",
+        "angular_velocity_rad_s": 0.001039679077003123,
+        "specific_energy_j_kg": -27792528.364244875,
+        "specific_angular_momentum_m2_s": 53463667739.389145,
+        "acceleration_m_s2": [
+          2.395304303778951,
+          7.371988622265507,
+          0.0
+        ]
+      },
+      "trajectory_validity": "reference_or_failed_attempt_only",
+      "fuel_used_kg": 12.0,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "docking-nominal": {
+      "fuel_leaked_kg": 0.0,
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 7.400860393611819,
+      "available_delta_v_m_s": 105.26297395947535,
+      "fuel_required_kg": 2.157420127753621,
+      "fuel_used_kg": 2.157420127753621,
+      "fuel_remaining_kg": 27.84257987224638,
+      "fuel_requirement_kind": "predicted_consumption_not_minimum_design_fuel",
+      "duration_s": 156.7500000000014,
+      "burns": [
+        {
+          "name": "Relative approach",
+          "at_s": 0,
+          "delta_v_m_s": 7.223418910344356,
+          "description": "CW-aware PD; 500 N translation limit"
+        },
+        {
+          "name": "Attitude match and capture",
+          "at_s": 156.7500000000014,
+          "delta_v_m_s": 0.17744148326746334,
+          "description": "Position, relative velocity, orientation and angular rate all checked"
+        }
+      ],
+      "summary": "Soft docking confirmed",
+      "frame": {
+        "name": "station_lvlh",
+        "origin": "Station center",
+        "axes": "X radial outward; Y along orbital motion; Z orbit normal",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "port_relative"
+      },
+      "events": [
+        {
+          "type": "soft_capture",
+          "t": 156.7500000000014,
+          "position_error_m": 0.2408648333392207,
+          "relative_speed_m_s": 0.010248820812067402,
+          "attitude_error_rad": 2.4868995751603507e-14,
+          "angular_rate_error_rad_s": -7.552986014403018e-15
+        }
+      ],
+      "metrics": {
+        "position_error_m": 0.2408648333392207,
+        "relative_speed_m_s": 0.010248820812067402,
+        "attitude_error_deg": 1.4248884972956555e-12,
+        "angular_rate_error_deg_s": -4.3275422134662976e-13,
+        "station_angular_velocity_rad_s": 0.020943951023931952,
+        "orbital_mean_motion_rad_s": 0.0011331559073083758,
+        "translation_delta_v_m_s": 7.223418910344356,
+        "translation_fuel_kg": 2.105677681406948,
+        "attitude_fuel_kg": 0.05174244634653466,
+        "angular_impulse_nm_s": 223.264827044268,
+        "signed_angular_impulse_nm_s": 5.235987755984853,
+        "angular_momentum_balance_residual_nm_s": 2.3092638912203256e-14,
+        "peak_thrust_n": 500.00000000000006,
+        "peak_torque_nm": 20.0,
+        "propellant_mass_balance_error_kg": 1.3825052214144762e-13,
+        "capture_dwell_s": 1.0000000000000002
+      },
+      "constraints": {
+        "position_tolerance_m": 0.25,
+        "relative_speed_tolerance_m_s": 0.05,
+        "attitude_tolerance_deg": 2.0,
+        "angular_rate_tolerance_deg_s": 0.1,
+        "dwell_s": 1.0
+      },
+      "integrator": {
+        "name": "RK4, sample-and-hold force/torque, exact fuel depletion split",
+        "step_s": 0.05
+      },
+      "assumptions": [
+        "Planar Clohessy-Wiltshire relative motion about a circular Earth reference orbit; small separation approximation.",
+        "Planar body attitude with constant moment of inertia and torque-limited RCS; translation is fully actuated.",
+        "Translation and attitude thrusters share propellant and Isp; torque couple propellant uses lever arm.",
+        "Constant station spin relative to LVLH; exponential radial approach reference; fixed PD gains.",
+        "Capture requires all four tolerances for a dwell interval. Hull exclusion is geometric; no rigid-body contact dynamics or full 6-DOF model."
+      ],
+      "knowledge_ids": [
+        "pd-control",
+        "rotating-frames",
+        "hill-clohessy-wiltshire",
+        "attitude-control",
+        "rocket-equation"
+      ],
+      "config": {
+        "mission_type": "docking",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 30.0,
+        "isp_s": 220.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "1a448f320b",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 297,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -8.329626567312282,
+            -1.1611649142486173,
+            0.0
+          ],
+          "max": [
+            88.0,
+            20.149174813497837,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 8.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 156.7500000000014,
+        "x": -8.158648738216314,
+        "y": -1.1611649142486173,
+        "z": 0.0,
+        "position_m": [
+          -8.158648738216314,
+          -1.1611649142486173,
+          0.0
+        ],
+        "velocity_m_s": [
+          0.03315120576354761,
+          -0.16961768941791622,
+          0.0
+        ],
+        "vx_m_s": 0.03315120576354761,
+        "vy_m_s": -0.16961768941791622,
+        "altitude_km": 400.0,
+        "speed_m_s": 0.010248820812067402,
+        "fuel_kg": 27.84257987224638,
+        "phase": "Docked",
+        "distance_m": 0.2408648333392207,
+        "relative_speed_m_s": 0.010248820812067402,
+        "station_angle": 3.2829643230013628,
+        "heading_rad": 6.424556976591131,
+        "attitude_error_rad": 2.4868995751603507e-14,
+        "angular_velocity_rad_s": 0.020943951023939505,
+        "angular_rate_error_rad_s": -7.552986014403018e-15,
+        "station_angular_velocity_rad_s": 0.020943951023931952,
+        "thrust_n": 2.339961753434497,
+        "torque_nm": 1.0469056177519975e-13,
+        "port_position_m": [
+          -7.920189261732428,
+          -1.1272098555008896,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "docking-no-torque": {
+      "fuel_leaked_kg": 0.0,
+      "feasible": false,
+      "success": false,
+      "delta_v_m_s": 7.777153193404986,
+      "available_delta_v_m_s": 105.26297395947535,
+      "fuel_required_kg": 2.2669154194292283,
+      "fuel_used_kg": 2.2669154194292283,
+      "fuel_remaining_kg": 27.73308458057077,
+      "fuel_requirement_kind": "predicted_consumption_not_minimum_design_fuel",
+      "duration_s": 300.0,
+      "burns": [
+        {
+          "name": "Relative approach",
+          "at_s": 0,
+          "delta_v_m_s": 7.777153193404986,
+          "description": "CW-aware PD; 500 N translation limit"
+        },
+        {
+          "name": "Attitude match and capture",
+          "at_s": 300.0,
+          "delta_v_m_s": 0.0,
+          "description": "Position, relative velocity, orientation and angular rate all checked"
+        }
+      ],
+      "summary": "Docking tolerances were not attained before the time limit",
+      "frame": {
+        "name": "station_lvlh",
+        "origin": "Station center",
+        "axes": "X radial outward; Y along orbital motion; Z orbit normal",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "port_relative"
+      },
+      "events": [],
+      "metrics": {
+        "position_error_m": 0.0011998237695278002,
+        "relative_speed_m_s": 5.1377604770517105e-05,
+        "attitude_error_deg": 150.00000000000003,
+        "angular_rate_error_deg_s": 1.2,
+        "station_angular_velocity_rad_s": 0.020943951023931952,
+        "orbital_mean_motion_rad_s": 0.0011331559073083758,
+        "translation_delta_v_m_s": 7.777153193404986,
+        "translation_fuel_kg": 2.266915419429297,
+        "attitude_fuel_kg": 0.0,
+        "angular_impulse_nm_s": 0.0,
+        "signed_angular_impulse_nm_s": 0.0,
+        "angular_momentum_balance_residual_nm_s": 0.0,
+        "peak_thrust_n": 500.00000000000006,
+        "peak_torque_nm": 0.0,
+        "propellant_mass_balance_error_kg": -6.88338275267597e-14,
+        "capture_dwell_s": 0.0
+      },
+      "constraints": {
+        "position_tolerance_m": 0.25,
+        "relative_speed_tolerance_m_s": 0.05,
+        "attitude_tolerance_deg": 2.0,
+        "angular_rate_tolerance_deg_s": 0.1,
+        "dwell_s": 1.0
+      },
+      "integrator": {
+        "name": "RK4, sample-and-hold force/torque, exact fuel depletion split",
+        "step_s": 0.05
+      },
+      "assumptions": [
+        "Planar Clohessy-Wiltshire relative motion about a circular Earth reference orbit; small separation approximation.",
+        "Planar body attitude with constant moment of inertia and torque-limited RCS; translation is fully actuated.",
+        "Translation and attitude thrusters share propellant and Isp; torque couple propellant uses lever arm.",
+        "Constant station spin relative to LVLH; exponential radial approach reference; fixed PD gains.",
+        "Capture requires all four tolerances for a dwell interval. Hull exclusion is geometric; no rigid-body contact dynamics or full 6-DOF model."
+      ],
+      "knowledge_ids": [
+        "pd-control",
+        "rotating-frames",
+        "hill-clohessy-wiltshire",
+        "attitude-control",
+        "rocket-equation"
+      ],
+      "config": {
+        "mission_type": "docking",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 30.0,
+        "isp_s": 220.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 0.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "17097a86e3",
+      "model_version": "0.2.0",
+      "status": "blocked",
+      "sample_count": 584,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -8.329626567312282,
+            -8.019306064033408,
+            0.0
+          ],
+          "max": [
+            88.0,
+            20.149174436891382,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 8.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 300.0,
+        "x": 8.001199567272334,
+        "y": 2.4808004137380837e-05,
+        "z": 0.0,
+        "position_m": [
+          8.001199567272334,
+          2.4808004137380837e-05,
+          0.0
+        ],
+        "velocity_m_s": [
+          -4.48058917297414e-05,
+          0.16757674959830252,
+          0.0
+        ],
+        "vx_m_s": -4.48058917297414e-05,
+        "vy_m_s": 0.16757674959830252,
+        "altitude_km": 400.0,
+        "speed_m_s": 5.1377604770517105e-05,
+        "fuel_kg": 27.73308458057077,
+        "phase": "Hold",
+        "distance_m": 0.0011998237695278002,
+        "relative_speed_m_s": 5.1377604770517105e-05,
+        "station_angle": 6.283185307179585,
+        "heading_rad": 0.5235987755982988,
+        "attitude_error_rad": 2.617993877991495,
+        "angular_velocity_rad_s": 0.0,
+        "angular_rate_error_rad_s": 0.020943951023931952,
+        "station_angular_velocity_rad_s": 0.020943951023931952,
+        "thrust_n": 2.4598860154217412,
+        "torque_nm": -0.0,
+        "port_position_m": [
+          8.0,
+          -9.064862236236767e-15,
+          0.0
+        ]
+      },
+      "trajectory_validity": "reference_or_failed_attempt_only",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "docking-precision": {
+      "fuel_leaked_kg": 0.0,
+      "feasible": true,
+      "success": true,
+      "delta_v_m_s": 7.566560978690259,
+      "available_delta_v_m_s": 105.26297395947535,
+      "fuel_required_kg": 2.2056387474213963,
+      "fuel_used_kg": 2.2056387474213963,
+      "fuel_remaining_kg": 27.794361252578604,
+      "fuel_requirement_kind": "predicted_consumption_not_minimum_design_fuel",
+      "duration_s": 200.25000000001128,
+      "burns": [
+        {
+          "name": "Relative approach",
+          "at_s": 0,
+          "delta_v_m_s": 7.389119495422791,
+          "description": "CW-aware PD; 500 N translation limit"
+        },
+        {
+          "name": "Attitude match and capture",
+          "at_s": 200.25000000001128,
+          "delta_v_m_s": 0.17744148326746778,
+          "description": "Position, relative velocity, orientation and angular rate all checked"
+        }
+      ],
+      "summary": "Soft docking confirmed",
+      "frame": {
+        "name": "station_lvlh",
+        "origin": "Station center",
+        "axes": "X radial outward; Y along orbital motion; Z orbit normal",
+        "legacy_position_unit": "m",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "port_relative"
+      },
+      "events": [
+        {
+          "type": "soft_capture",
+          "t": 200.25000000001128,
+          "position_error_m": 0.04809549528669885,
+          "relative_speed_m_s": 0.0020467404124702585,
+          "attitude_error_rad": 2.4868995751603507e-14,
+          "angular_rate_error_rad_s": -7.61196661258623e-15
+        }
+      ],
+      "metrics": {
+        "position_error_m": 0.04809549528669885,
+        "relative_speed_m_s": 0.0020467404124702585,
+        "attitude_error_deg": 1.4248884972956555e-12,
+        "angular_rate_error_deg_s": -4.3613356069568474e-13,
+        "station_angular_velocity_rad_s": 0.020943951023931952,
+        "orbital_mean_motion_rad_s": 0.0011331559073083758,
+        "translation_delta_v_m_s": 7.389119495422791,
+        "translation_fuel_kg": 2.1538963010747594,
+        "attitude_fuel_kg": 0.05174244634653466,
+        "angular_impulse_nm_s": 223.264827044268,
+        "signed_angular_impulse_nm_s": 5.23598775598487,
+        "angular_momentum_balance_residual_nm_s": 2.1316282072803006e-14,
+        "peak_thrust_n": 500.00000000000006,
+        "peak_torque_nm": 20.0,
+        "propellant_mass_balance_error_kg": 1.0227929614359255e-13,
+        "capture_dwell_s": 1.0000000000000002
+      },
+      "constraints": {
+        "position_tolerance_m": 0.05,
+        "relative_speed_tolerance_m_s": 0.01,
+        "attitude_tolerance_deg": 0.5,
+        "angular_rate_tolerance_deg_s": 0.02,
+        "dwell_s": 1.0
+      },
+      "integrator": {
+        "name": "RK4, sample-and-hold force/torque, exact fuel depletion split",
+        "step_s": 0.05
+      },
+      "assumptions": [
+        "Planar Clohessy-Wiltshire relative motion about a circular Earth reference orbit; small separation approximation.",
+        "Planar body attitude with constant moment of inertia and torque-limited RCS; translation is fully actuated.",
+        "Translation and attitude thrusters share propellant and Isp; torque couple propellant uses lever arm.",
+        "Constant station spin relative to LVLH; exponential radial approach reference; fixed PD gains.",
+        "Capture requires all four tolerances for a dwell interval. Hull exclusion is geometric; no rigid-body contact dynamics or full 6-DOF model."
+      ],
+      "knowledge_ids": [
+        "pd-control",
+        "rotating-frames",
+        "hill-clohessy-wiltshire",
+        "attitude-control",
+        "rocket-equation"
+      ],
+      "config": {
+        "mission_type": "docking",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 30.0,
+        "isp_s": 220.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.05,
+        "docking_velocity_tolerance_m_s": 0.01,
+        "docking_angle_tolerance_deg": 0.5,
+        "docking_rate_tolerance_deg_s": 0.02,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "df79afddf9",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 384,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -8.329626567312282,
+            -6.990840983494405,
+            0.0
+          ],
+          "max": [
+            88.0,
+            20.149174813497837,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 8.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 200.25000000001128,
+        "x": -3.98747832011835,
+        "y": -6.990840983494405,
+        "z": 0.0,
+        "position_m": [
+          -3.98747832011835,
+          -6.990840983494405,
+          0.0
+        ],
+        "velocity_m_s": [
+          0.14729839497336536,
+          -0.081966408083558,
+          0.0
+        ],
+        "vx_m_s": 0.14729839497336536,
+        "vy_m_s": -0.081966408083558,
+        "altitude_km": 400.0,
+        "speed_m_s": 0.0020467404124702585,
+        "fuel_kg": 27.794361252578604,
+        "phase": "Docked",
+        "distance_m": 0.04809549528669885,
+        "relative_speed_m_s": 0.0020467404124702585,
+        "station_angle": 4.194026192542609,
+        "heading_rad": 7.335618846132378,
+        "attitude_error_rad": 2.4868995751603507e-14,
+        "angular_velocity_rad_s": 0.020943951023939564,
+        "angular_rate_error_rad_s": -7.61196661258623e-15,
+        "station_angular_velocity_rad_s": 0.020943951023931952,
+        "thrust_n": 2.419814432900584,
+        "torque_nm": 1.700029006457267e-13,
+        "port_position_m": [
+          -3.963669347457624,
+          -6.949052115506463,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "lunar-distance": {
+      "feasible": true,
+      "available_delta_v_m_s": 3931.330548798432,
+      "fuel_required_kg": 1320.0469543165746,
+      "fuel_remaining_kg": 179.95304568342544,
+      "mass_ratio": 2.6924697731770477,
+      "required_initial_fuel_kg": 1015.4818639062287,
+      "fuel_margin_kg": 484.5181360937713,
+      "delta_v_m_s": 3108.186818492538,
+      "duration_s": 430248.5438672797,
+      "burns": [
+        {
+          "name": "Departure burn",
+          "at_s": 0,
+          "delta_v_m_s": 3108.186818492538,
+          "signed_delta_v_m_s": 3108.186818492538,
+          "fuel_kg": 1320.0469543165746,
+          "equivalent_burn_duration_s": 138.0825436218521,
+          "description": "Prograde"
+        },
+        {
+          "name": "Reach lunar distance",
+          "at_s": 430248.5438672797,
+          "delta_v_m_s": 0,
+          "signed_delta_v_m_s": 0,
+          "fuel_kg": 0.0,
+          "equivalent_burn_duration_s": 0.0,
+          "description": "Transfer endpoint; no lunar capture"
+        }
+      ],
+      "success": true,
+      "summary": "Lunar distance reached",
+      "frame": {
+        "name": "earth_inertial",
+        "origin": "Earth center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "metrics": {
+        "transfer_time_s": 430248.5438672797,
+        "semi_major_axis_m": 195535500.0,
+        "eccentricity": 0.965883432931616,
+        "max_relative_energy_error": 3.02216254664702e-13,
+        "max_relative_angular_momentum_error": 3.1656878461030606e-15
+      },
+      "events": [
+        {
+          "type": "burn",
+          "t": 0,
+          "delta_v_m_s": 3108.186818492538
+        },
+        {
+          "type": "lunar_distance",
+          "t": 430248.5438672797
+        }
+      ],
+      "integrator": {
+        "name": "Analytic Kepler ellipse and circular coast",
+        "error_control": "No time-integration drift in the two-body model"
+      },
+      "assumptions": [
+        "Spherical Earth; coplanar circular initial and final orbits; exact Newtonian two-body conics.",
+        "Instantaneous impulses; finite-burn gravity losses, J2, atmospheric drag and third-body perturbations omitted.",
+        "Equivalent burn durations are diagnostics only, not a finite-thrust propagation.",
+        "Lunar-distance transfer only: no moving-Moon interception, lunar gravity, capture or landing."
+      ],
+      "knowledge_ids": [
+        "gravity",
+        "hohmann",
+        "rocket-equation",
+        "numerical-integration"
+      ],
+      "config": {
+        "mission_type": "lunar",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 500.0,
+        "payload_kg": 100.0,
+        "fuel_kg": 1500.0,
+        "isp_s": 320.0,
+        "thrust_n": 30000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "952e4e759c",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 401,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -384400000.00000006,
+            0.0,
+            0.0
+          ],
+          "max": [
+            6670999.99999999,
+            50639237.75097723,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 6371000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 430248.5438672797,
+        "x": -384400.00000000006,
+        "y": 6.201518042299608e-12,
+        "z": 0.0,
+        "position_m": [
+          -384400000.00000006,
+          6.201518042299608e-09,
+          0.0
+        ],
+        "velocity_m_s": [
+          -8.894246646430174e-14,
+          -188.0874682098712,
+          0.0
+        ],
+        "vx_m_s": -8.894246646430174e-14,
+        "vy_m_s": -188.0874682098712,
+        "altitude_km": 378029.00000000006,
+        "speed_m_s": 188.0874682098712,
+        "fuel_kg": 179.95304568342544,
+        "phase": "Transfer coast",
+        "angular_velocity_rad_s": 4.893014261443058e-07,
+        "specific_energy_j_kg": -1019253.3882594209,
+        "specific_angular_momentum_m2_s": 72300822779.8745,
+        "acceleration_m_s2": [
+          0.0026975594071493763,
+          -4.351967568577494e-20,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_used_kg": 1320.0469543165746,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "mars-tourism": {
+      "feasible": true,
+      "available_delta_v_m_s": 6734.475021901375,
+      "fuel_required_kg": 16654.559799964925,
+      "fuel_remaining_kg": 1345.4402000350747,
+      "mass_ratio": 3.624650028200229,
+      "required_initial_fuel_kg": 13123.250141001145,
+      "fuel_margin_kg": 4876.749858998855,
+      "success": true,
+      "delta_v_m_s": 5682.865247118378,
+      "duration_s": 22366001.57049873,
+      "fidelity_warnings": [],
+      "burns": [
+        {
+          "name": "Earth departure injection",
+          "at_s": 0,
+          "delta_v_m_s": 3591.4884023650757,
+          "description": "Parking-orbit escape with computed hyperbolic excess speed"
+        },
+        {
+          "name": "Mars orbit capture budget",
+          "at_s": 22366001.57049873,
+          "delta_v_m_s": 2091.3768447533025,
+          "description": "Patched-conic parking-orbit insertion budget; local arrival arc not propagated"
+        }
+      ],
+      "summary": "Mars transfer arrival and fuel budget verified",
+      "frame": {
+        "name": "heliocentric_ecliptic",
+        "origin": "Sun center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "bodies": [
+        {
+          "id": "sun",
+          "radius_m": 696340000,
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffd77a"
+        },
+        {
+          "id": "earth",
+          "radius_m": 6371000.0,
+          "orbit_radius_m": 149597870700.0,
+          "mean_motion_rad_s": 1.990983674588946e-07,
+          "initial_phase_rad": 0,
+          "color": "#73aee8"
+        },
+        {
+          "id": "mars",
+          "radius_m": 3389500.0,
+          "orbit_radius_m": 227939134030.3053,
+          "mean_motion_rad_s": 1.0585892417850388e-07,
+          "initial_phase_rad": 0.7739517891620693,
+          "color": "#d88662"
+        }
+      ],
+      "metrics": {
+        "travel_days": 258.8657589178094,
+        "equivalent_departure_burn_duration_s": 226.07799286286283,
+        "departure_burn_to_parking_period_ratio": 0.04169278415480035,
+        "departure_vinf_m_s": 2944.689256124362,
+        "arrival_vinf_m_s": 2648.8952289859953,
+        "departure_c3_km2_s2": 8.67119481513425,
+        "injection_delta_v_m_s": 3591.4884023650757,
+        "capture_delta_v_m_s": 2091.3768447533025,
+        "heliocentric_delta_v_m_s": 5593.5844851103575,
+        "required_departure_phase_angle_deg": 44.3441710655855,
+        "actual_departure_phase_angle_deg": 44.3441710655855,
+        "arrival_miss_distance_km": 2.791449308906329e-08,
+        "arrival_tolerance_km": 1000.0,
+        "synodic_period_days": 779.9494463704572,
+        "transfer_semi_major_axis_m": 188768502365.15265,
+        "transfer_eccentricity": 0.2075061844236133
+      },
+      "events": [
+        {
+          "type": "injection",
+          "t": 0,
+          "delta_v_m_s": 3591.4884023650757
+        },
+        {
+          "type": "ideal_arrival",
+          "t": 22366001.57049873,
+          "miss_distance_m": 2.791449308906329e-05,
+          "capture_delta_v_m_s": 2091.3768447533025
+        }
+      ],
+      "integrator": {
+        "name": "Analytic solar two-body Hohmann conic; circular analytic planet motion"
+      },
+      "assumptions": [
+        "Ideal coplanar circular Earth/destination orbits around the Sun; not date-specific JPL ephemerides.",
+        "Launch phase is solved analytically unless explicitly supplied; a wrong phase fails the arrival tolerance.",
+        "Departure and optional capture use patched-conic parking-orbit energy budgets. Sphere-of-influence and local hyperbolic arcs are not propagated.",
+        "One-way transfer only; no round-trip, life support, radiation, planetary atmosphere, aerobraking or landing model.",
+        "The destination point is the ideal planet-center orbital location; it is not a physical surface collision or a rendered parking orbit."
+      ],
+      "knowledge_ids": [
+        "interplanetary-transfers",
+        "hohmann",
+        "rocket-equation",
+        "gravity"
+      ],
+      "config": {
+        "mission_type": "interplanetary",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 4000.0,
+        "payload_kg": 1000.0,
+        "fuel_kg": 18000.0,
+        "isp_s": 450.0,
+        "thrust_n": 250000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "61481ff6b5",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 501,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -227939134030.3053,
+            0.0,
+            0.0
+          ],
+          "max": [
+            149597870700.0,
+            184659711632.33084,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 696340000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 22366001.57049873,
+        "x": -227939134.0303053,
+        "y": 2.2614292478200722e-08,
+        "z": 0.0,
+        "position_m": [
+          -227939134030.3053,
+          2.2614292478200724e-05,
+          0.0
+        ],
+        "velocity_m_s": [
+          -2.689134595437626e-12,
+          -21480.496277641923,
+          0.0
+        ],
+        "vx_m_s": -2.689134595437626e-12,
+        "vy_m_s": -21480.496277641923,
+        "altitude_km": 0.0,
+        "speed_m_s": 21480.496277641923,
+        "fuel_kg": 1345.4402000350747,
+        "phase": "Arrival; capture budget applied",
+        "heliocentric_radius_m": 227939134030.3053,
+        "angular_velocity_rad_s": 9.423786033505776e-08,
+        "acceleration_m_s2": [
+          0.0025543114259735608,
+          -2.534182904270231e-19,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_used_kg": 16654.559799964925,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "mars-wrong-window": {
+      "feasible": false,
+      "available_delta_v_m_s": 6734.475021901375,
+      "fuel_required_kg": 16654.559799964925,
+      "fuel_remaining_kg": 1345.4402000350747,
+      "mass_ratio": 3.624650028200229,
+      "required_initial_fuel_kg": 13123.250141001145,
+      "fuel_margin_kg": 4876.749858998855,
+      "success": false,
+      "delta_v_m_s": 5682.865247118378,
+      "duration_s": 22366001.57049873,
+      "fidelity_warnings": [],
+      "burns": [
+        {
+          "name": "Earth departure injection",
+          "at_s": 0,
+          "delta_v_m_s": 3591.4884023650757,
+          "description": "Parking-orbit escape with computed hyperbolic excess speed"
+        },
+        {
+          "name": "Mars orbit capture budget",
+          "at_s": 22366001.57049873,
+          "delta_v_m_s": 2091.3768447533025,
+          "description": "Patched-conic parking-orbit insertion budget; local arrival arc not propagated"
+        }
+      ],
+      "summary": "Departure phase misses the destination tolerance",
+      "frame": {
+        "name": "heliocentric_ecliptic",
+        "origin": "Sun center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "bodies": [
+        {
+          "id": "sun",
+          "radius_m": 696340000,
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffd77a"
+        },
+        {
+          "id": "earth",
+          "radius_m": 6371000.0,
+          "orbit_radius_m": 149597870700.0,
+          "mean_motion_rad_s": 1.990983674588946e-07,
+          "initial_phase_rad": 0,
+          "color": "#73aee8"
+        },
+        {
+          "id": "mars",
+          "radius_m": 3389500.0,
+          "orbit_radius_m": 227939134030.3053,
+          "mean_motion_rad_s": 1.0585892417850388e-07,
+          "initial_phase_rad": 0.0,
+          "color": "#d88662"
+        }
+      ],
+      "metrics": {
+        "travel_days": 258.8657589178094,
+        "equivalent_departure_burn_duration_s": 226.07799286286283,
+        "departure_burn_to_parking_period_ratio": 0.04169278415480035,
+        "departure_vinf_m_s": 2944.689256124362,
+        "arrival_vinf_m_s": 2648.8952289859953,
+        "departure_c3_km2_s2": 8.67119481513425,
+        "injection_delta_v_m_s": 3591.4884023650757,
+        "capture_delta_v_m_s": 2091.3768447533025,
+        "heliocentric_delta_v_m_s": 5593.5844851103575,
+        "required_departure_phase_angle_deg": 44.3441710655855,
+        "actual_departure_phase_angle_deg": 0.0,
+        "arrival_miss_distance_km": 172043743.8716151,
+        "arrival_tolerance_km": 1000.0,
+        "synodic_period_days": 779.9494463704572,
+        "transfer_semi_major_axis_m": 188768502365.15265,
+        "transfer_eccentricity": 0.2075061844236133
+      },
+      "events": [
+        {
+          "type": "injection",
+          "t": 0,
+          "delta_v_m_s": 3591.4884023650757
+        },
+        {
+          "type": "ideal_arrival",
+          "t": 22366001.57049873,
+          "miss_distance_m": 172043743871.6151,
+          "capture_delta_v_m_s": 2091.3768447533025
+        }
+      ],
+      "integrator": {
+        "name": "Analytic solar two-body Hohmann conic; circular analytic planet motion"
+      },
+      "assumptions": [
+        "Ideal coplanar circular Earth/destination orbits around the Sun; not date-specific JPL ephemerides.",
+        "Launch phase is solved analytically unless explicitly supplied; a wrong phase fails the arrival tolerance.",
+        "Departure and optional capture use patched-conic parking-orbit energy budgets. Sphere-of-influence and local hyperbolic arcs are not propagated.",
+        "One-way transfer only; no round-trip, life support, radiation, planetary atmosphere, aerobraking or landing model.",
+        "The destination point is the ideal planet-center orbital location; it is not a physical surface collision or a rendered parking orbit."
+      ],
+      "knowledge_ids": [
+        "interplanetary-transfers",
+        "hohmann",
+        "rocket-equation",
+        "gravity"
+      ],
+      "config": {
+        "mission_type": "interplanetary",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 4000.0,
+        "payload_kg": 1000.0,
+        "fuel_kg": 18000.0,
+        "isp_s": 450.0,
+        "thrust_n": 250000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": 0.0,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "f18d5227ce",
+      "model_version": "0.2.0",
+      "status": "blocked",
+      "sample_count": 501,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -227939134030.3053,
+            0.0,
+            0.0
+          ],
+          "max": [
+            149597870700.0,
+            184659711632.33084,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 696340000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 22366001.57049873,
+        "x": -227939134.0303053,
+        "y": 2.2614292478200722e-08,
+        "z": 0.0,
+        "position_m": [
+          -227939134030.3053,
+          2.2614292478200724e-05,
+          0.0
+        ],
+        "velocity_m_s": [
+          -2.689134595437626e-12,
+          -21480.496277641923,
+          0.0
+        ],
+        "vx_m_s": -2.689134595437626e-12,
+        "vy_m_s": -21480.496277641923,
+        "altitude_km": 0.0,
+        "speed_m_s": 21480.496277641923,
+        "fuel_kg": 1345.4402000350747,
+        "phase": "Arrival; capture budget applied",
+        "heliocentric_radius_m": 227939134030.3053,
+        "angular_velocity_rad_s": 9.423786033505776e-08,
+        "acceleration_m_s2": [
+          0.0025543114259735608,
+          -2.534182904270231e-19,
+          0.0
+        ]
+      },
+      "trajectory_validity": "reference_or_failed_attempt_only",
+      "fuel_used_kg": 16654.559799964925,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "mars-flyby": {
+      "feasible": true,
+      "available_delta_v_m_s": 6734.475021901375,
+      "fuel_required_kg": 12807.52192887609,
+      "fuel_remaining_kg": 5192.478071123909,
+      "mass_ratio": 2.2565660518967223,
+      "required_initial_fuel_kg": 6282.830259483611,
+      "fuel_margin_kg": 11717.169740516389,
+      "success": true,
+      "delta_v_m_s": 3591.4884023650757,
+      "duration_s": 22366001.57049873,
+      "fidelity_warnings": [],
+      "burns": [
+        {
+          "name": "Earth departure injection",
+          "at_s": 0,
+          "delta_v_m_s": 3591.4884023650757,
+          "description": "Parking-orbit escape with computed hyperbolic excess speed"
+        },
+        {
+          "name": "Mars flyby",
+          "at_s": 22366001.57049873,
+          "delta_v_m_s": 0.0,
+          "description": "Patched-conic parking-orbit insertion budget; local arrival arc not propagated"
+        }
+      ],
+      "summary": "Mars transfer arrival and fuel budget verified",
+      "frame": {
+        "name": "heliocentric_ecliptic",
+        "origin": "Sun center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "bodies": [
+        {
+          "id": "sun",
+          "radius_m": 696340000,
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffd77a"
+        },
+        {
+          "id": "earth",
+          "radius_m": 6371000.0,
+          "orbit_radius_m": 149597870700.0,
+          "mean_motion_rad_s": 1.990983674588946e-07,
+          "initial_phase_rad": 0,
+          "color": "#73aee8"
+        },
+        {
+          "id": "mars",
+          "radius_m": 3389500.0,
+          "orbit_radius_m": 227939134030.3053,
+          "mean_motion_rad_s": 1.0585892417850388e-07,
+          "initial_phase_rad": 0.7739517891620693,
+          "color": "#d88662"
+        }
+      ],
+      "metrics": {
+        "travel_days": 258.8657589178094,
+        "equivalent_departure_burn_duration_s": 226.07799286286283,
+        "departure_burn_to_parking_period_ratio": 0.04169278415480035,
+        "departure_vinf_m_s": 2944.689256124362,
+        "arrival_vinf_m_s": 2648.8952289859953,
+        "departure_c3_km2_s2": 8.67119481513425,
+        "injection_delta_v_m_s": 3591.4884023650757,
+        "capture_delta_v_m_s": 0.0,
+        "heliocentric_delta_v_m_s": 5593.5844851103575,
+        "required_departure_phase_angle_deg": 44.3441710655855,
+        "actual_departure_phase_angle_deg": 44.3441710655855,
+        "arrival_miss_distance_km": 2.791449308906329e-08,
+        "arrival_tolerance_km": 1000.0,
+        "synodic_period_days": 779.9494463704572,
+        "transfer_semi_major_axis_m": 188768502365.15265,
+        "transfer_eccentricity": 0.2075061844236133
+      },
+      "events": [
+        {
+          "type": "injection",
+          "t": 0,
+          "delta_v_m_s": 3591.4884023650757
+        },
+        {
+          "type": "ideal_arrival",
+          "t": 22366001.57049873,
+          "miss_distance_m": 2.791449308906329e-05,
+          "capture_delta_v_m_s": 0.0
+        }
+      ],
+      "integrator": {
+        "name": "Analytic solar two-body Hohmann conic; circular analytic planet motion"
+      },
+      "assumptions": [
+        "Ideal coplanar circular Earth/destination orbits around the Sun; not date-specific JPL ephemerides.",
+        "Launch phase is solved analytically unless explicitly supplied; a wrong phase fails the arrival tolerance.",
+        "Departure and optional capture use patched-conic parking-orbit energy budgets. Sphere-of-influence and local hyperbolic arcs are not propagated.",
+        "One-way transfer only; no round-trip, life support, radiation, planetary atmosphere, aerobraking or landing model.",
+        "The destination point is the ideal planet-center orbital location; it is not a physical surface collision or a rendered parking orbit."
+      ],
+      "knowledge_ids": [
+        "interplanetary-transfers",
+        "hohmann",
+        "rocket-equation",
+        "gravity"
+      ],
+      "config": {
+        "mission_type": "interplanetary",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 4000.0,
+        "payload_kg": 1000.0,
+        "fuel_kg": 18000.0,
+        "isp_s": 450.0,
+        "thrust_n": 250000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "mars",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": false,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "48d1f88d55",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 501,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -227939134030.3053,
+            0.0,
+            0.0
+          ],
+          "max": [
+            149597870700.0,
+            184659711632.33084,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 696340000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 22366001.57049873,
+        "x": -227939134.0303053,
+        "y": 2.2614292478200722e-08,
+        "z": 0.0,
+        "position_m": [
+          -227939134030.3053,
+          2.2614292478200724e-05,
+          0.0
+        ],
+        "velocity_m_s": [
+          -2.689134595437626e-12,
+          -21480.496277641923,
+          0.0
+        ],
+        "vx_m_s": -2.689134595437626e-12,
+        "vy_m_s": -21480.496277641923,
+        "altitude_km": 0.0,
+        "speed_m_s": 21480.496277641923,
+        "fuel_kg": 5192.478071123909,
+        "phase": "Arrival flyby",
+        "heliocentric_radius_m": 227939134030.3053,
+        "angular_velocity_rad_s": 9.423786033505776e-08,
+        "acceleration_m_s2": [
+          0.0025543114259735608,
+          -2.534182904270231e-19,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_used_kg": 12807.52192887609,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    },
+    "venus-transfer": {
+      "feasible": true,
+      "available_delta_v_m_s": 7102.437436787341,
+      "fuel_required_kg": 19646.73996883204,
+      "fuel_remaining_kg": 353.2600311679598,
+      "mass_ratio": 4.670051492818211,
+      "required_initial_fuel_kg": 18350.257464091057,
+      "fuel_margin_kg": 1649.742535908943,
+      "success": true,
+      "delta_v_m_s": 6801.172083342663,
+      "duration_s": 12620908.226967454,
+      "fidelity_warnings": [],
+      "burns": [
+        {
+          "name": "Earth departure injection",
+          "at_s": 0,
+          "delta_v_m_s": 3483.020906230018,
+          "description": "Parking-orbit escape with computed hyperbolic excess speed"
+        },
+        {
+          "name": "Venus orbit capture budget",
+          "at_s": 12620908.226967454,
+          "delta_v_m_s": 3318.151177112645,
+          "description": "Patched-conic parking-orbit insertion budget; local arrival arc not propagated"
+        }
+      ],
+      "summary": "Venus transfer arrival and fuel budget verified",
+      "frame": {
+        "name": "heliocentric_ecliptic",
+        "origin": "Sun center",
+        "axes": "right-handed XY plane; Z normal to plane",
+        "legacy_position_unit": "km",
+        "position_m_unit": "m",
+        "velocity_m_s_unit": "m/s",
+        "time_unit": "s",
+        "angle_unit": "rad",
+        "speed_kind": "frame_velocity"
+      },
+      "bodies": [
+        {
+          "id": "sun",
+          "radius_m": 696340000,
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffd77a"
+        },
+        {
+          "id": "earth",
+          "radius_m": 6371000.0,
+          "orbit_radius_m": 149597870700.0,
+          "mean_motion_rad_s": 1.990983674588946e-07,
+          "initial_phase_rad": 0,
+          "color": "#73aee8"
+        },
+        {
+          "id": "venus",
+          "radius_m": 6051800.0,
+          "orbit_radius_m": 108208927009.1724,
+          "mean_motion_rad_s": 3.2363924629065657e-07,
+          "initial_phase_rad": -0.9430285724895002,
+          "color": "#deb97a"
+        }
+      ],
+      "metrics": {
+        "travel_days": 146.0753267010122,
+        "equivalent_departure_burn_duration_s": 240.87063859979122,
+        "departure_burn_to_parking_period_ratio": 0.04442080990369443,
+        "departure_vinf_m_s": 2495.387039297071,
+        "arrival_vinf_m_s": 2706.563446671935,
+        "departure_c3_km2_s2": 6.226956475891803,
+        "injection_delta_v_m_s": 3483.020906230018,
+        "capture_delta_v_m_s": 3318.151177112645,
+        "heliocentric_delta_v_m_s": 5201.950485969006,
+        "required_departure_phase_angle_deg": -54.03155716389517,
+        "actual_departure_phase_angle_deg": -54.03155716389517,
+        "arrival_miss_distance_km": 1.3251771610095255e-08,
+        "arrival_tolerance_km": 1000.0,
+        "synodic_period_days": 583.9211417856473,
+        "transfer_semi_major_axis_m": 128903398854.5862,
+        "transfer_eccentricity": 0.16054248397871104
+      },
+      "events": [
+        {
+          "type": "injection",
+          "t": 0,
+          "delta_v_m_s": 3483.020906230018
+        },
+        {
+          "type": "ideal_arrival",
+          "t": 12620908.226967454,
+          "miss_distance_m": 1.3251771610095255e-05,
+          "capture_delta_v_m_s": 3318.151177112645
+        }
+      ],
+      "integrator": {
+        "name": "Analytic solar two-body Hohmann conic; circular analytic planet motion"
+      },
+      "assumptions": [
+        "Ideal coplanar circular Earth/destination orbits around the Sun; not date-specific JPL ephemerides.",
+        "Launch phase is solved analytically unless explicitly supplied; a wrong phase fails the arrival tolerance.",
+        "Departure and optional capture use patched-conic parking-orbit energy budgets. Sphere-of-influence and local hyperbolic arcs are not propagated.",
+        "One-way transfer only; no round-trip, life support, radiation, planetary atmosphere, aerobraking or landing model.",
+        "The destination point is the ideal planet-center orbital location; it is not a physical surface collision or a rendered parking orbit."
+      ],
+      "knowledge_ids": [
+        "interplanetary-transfers",
+        "hohmann",
+        "rocket-equation",
+        "gravity"
+      ],
+      "config": {
+        "mission_type": "interplanetary",
+        "start_altitude_km": 300.0,
+        "target_altitude_km": 800.0,
+        "dry_mass_kg": 4000.0,
+        "payload_kg": 1000.0,
+        "fuel_kg": 20000.0,
+        "isp_s": 450.0,
+        "thrust_n": 250000.0,
+        "atmosphere_enabled": true,
+        "drag_coefficient": 0.35,
+        "reference_area_m2": 1.0,
+        "integration_step_s": 0.05,
+        "launch_target_altitude_km": 100.0,
+        "station_rpm": 0.2,
+        "station_orbit_altitude_km": 400.0,
+        "station_port_radius_m": 8.0,
+        "docking_standoff_m": 80.0,
+        "docking_thrust_n": 500.0,
+        "max_torque_nm": 20.0,
+        "moment_of_inertia_kg_m2": 250.0,
+        "rcs_lever_arm_m": 2.0,
+        "initial_attitude_deg": 30.0,
+        "initial_angular_velocity_deg_s": 0.0,
+        "controller_kp": 0.08,
+        "controller_kd": 0.6,
+        "docking_position_tolerance_m": 0.25,
+        "docking_velocity_tolerance_m_s": 0.05,
+        "docking_angle_tolerance_deg": 2.0,
+        "docking_rate_tolerance_deg_s": 0.1,
+        "docking_dwell_s": 1.0,
+        "docking_timeout_s": 300.0,
+        "ball_speed_m_s": 20.0,
+        "ball_angle_deg": 45.0,
+        "ball_height_m": 1.8,
+        "ball_mass_kg": 0.145,
+        "ball_radius_m": 0.0366,
+        "ball_drag_coefficient": 0.47,
+        "ball_spin_rad_s": 0.0,
+        "wind_m_s": 0.0,
+        "ball_target_range_m": null,
+        "ball_target_tolerance_m": 0.5,
+        "destination": "venus",
+        "arrival_orbit_altitude_km": 300.0,
+        "capture_at_destination": true,
+        "departure_phase_angle_deg": null,
+        "arrival_tolerance_km": 1000.0
+      },
+      "id": "2d0d5226d7",
+      "model_version": "0.2.0",
+      "status": "ready",
+      "sample_count": 501,
+      "rendering": {
+        "bounds_m": {
+          "min": [
+            -108208927009.1724,
+            -3.390180606630538e-05,
+            0.0
+          ],
+          "max": [
+            149597870700.0,
+            127231383987.22191,
+            0.0
+          ]
+        },
+        "physical_body_radius_m": 696340000.0,
+        "trajectory_plane": "XY",
+        "magnify_small_bodies_only_with_visible_scale_label": true
+      },
+      "final": {
+        "t": 12620908.226967454,
+        "x": -108208927.0091724,
+        "y": 4.4414473040303083e-08,
+        "z": 0.0,
+        "position_m": [
+          -108208927009.1724,
+          4.441447304030308e-05,
+          0.0
+        ],
+        "velocity_m_s": [
+          -1.3982189748311208e-11,
+          -37727.219025841165,
+          0.0
+        ],
+        "vx_m_s": -1.3982189748311208e-11,
+        "vy_m_s": -37727.219025841165,
+        "altitude_km": 0.0,
+        "speed_m_s": 37727.219025841165,
+        "fuel_kg": 353.2600311679598,
+        "phase": "Arrival; capture budget applied",
+        "heliocentric_radius_m": 108208927009.1724,
+        "angular_velocity_rad_s": 3.4865163225066625e-07,
+        "acceleration_m_s2": [
+          0.011334058576247003,
+          -4.652076801660438e-18,
+          0.0
+        ]
+      },
+      "trajectory_validity": "model_validated",
+      "fuel_used_kg": 19646.73996883204,
+      "fuel_requirement_kind": "ideal_impulsive_transfer_budget",
+      "units": {
+        "position_m": "m",
+        "velocity_m_s": "m/s",
+        "t": "s",
+        "fuel_kg": "kg",
+        "heading_rad": "rad",
+        "angular_velocity_rad_s": "rad/s",
+        "torque_nm": "N*m"
+      }
+    }
+  },
+  "notice": "Model verification is distinct from validation against real flight data. All assumptions remain explicit."
+}

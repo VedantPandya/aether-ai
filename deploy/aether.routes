@@ -1,0 +1,7 @@
+# Imported inside the existing agent.vedantpandya.com site block.
+redir /aether /aether/ 308
+handle_path /aether/* {
+    reverse_proxy 127.0.0.1:8016 {
+        flush_interval -1
+    }
+}
